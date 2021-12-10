@@ -52,6 +52,10 @@ void Message::move_Folders(Message *m) {
     m->folders.clear();
 }
 
+Message::Message(Message &&m) : contents(std::move(m.contents)) {
+    move_Folders(&m);
+}
+
 Message& Message::operator=(Message &&rhs) {
     if (this != &rhs) {
         remove_from_folders();
