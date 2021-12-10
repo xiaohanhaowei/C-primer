@@ -15,6 +15,7 @@ public:
     std::string printcontents() { return contents; }
     //与移动赋值和移动构造有关
     void move_Folders(Message *m);
+    Message(Message&&);
     Message& operator=(Message &&);
 private:
     std::string contents;
